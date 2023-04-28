@@ -58,3 +58,23 @@ AND amount between 1.99 and 3.99
 SELECT payment_id FROM payment WHERE customer_id  
 IN(12, 25, 67,93, 124, 234) AND amount IN (4.99, 7.99, 9.99) 
 AND payment_date between '2020-01-01' AND '2020-01-31 23:59' 
+
+-- challenge is how many customer are there with first name 
+--having 3 letter long and  in last name having eigther 'X' or 'Y' 
+-- as last letter.
+SELECT COUNT(*) FROM customer WHERE first_name LIKE '___'
+AND (last_name LIKE '%X' OR last_name LIKe '%Y')
+
+/*section 2 challenge 28-04-23
+1st. how many movie are there that contain 'Saga' in their discription 
+and their title start eigther with 'A' or ends with 'R' ? */
+SELECT COUNT(*) FROM film WHERE description LIKE '%Saga%' AND 
+(title LIKE 'A%' OR title LIKE '%R')
+
+/*2nd. create a list of all customers who cotanins 'ER' in first name and 
+has 'A' as second letter order by last name desc*/
+SELECT * FROM customer WHERE first_name LIKE '%ER%' AND 
+first_name LIKE '_A%' ORDER BY last_name DESC
+/*3rd. */
+
+ 
