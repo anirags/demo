@@ -48,3 +48,13 @@ SELECT payment_id , amount FROM payment WHERE amount <= 2
 SELECT * FROM payment where (customer_id = 322 OR
 customer_id = 346 OR customer_id = 354) AND (amount < 2 OR amount > 10)
 ORDER BY customer_id ASC, amount DESC
+
+-- how many payment have been made on jan 26th and 27th 2020 with an amount 
+-- between 1.99 and 3.99
+SELECT COUNT(*) FROM payment WHERE payment_date 
+between '2020-01-26' AND '2020-01-27 23:00' 
+AND amount between 1.99 and 3.99
+
+SELECT payment_id FROM payment WHERE customer_id  
+IN(12, 25, 67,93, 124, 234) AND amount IN (4.99, 7.99, 9.99) 
+AND payment_date between '2020-01-01' AND '2020-01-31 23:59' 
