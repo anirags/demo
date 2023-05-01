@@ -75,6 +75,39 @@ SELECT COUNT(*) FROM film WHERE description LIKE '%Saga%' AND
 has 'A' as second letter order by last name desc*/
 SELECT * FROM customer WHERE first_name LIKE '%ER%' AND 
 first_name LIKE '_A%' ORDER BY last_name DESC
-/*3rd. */
+
+-- Section 3 Date: 01-05-23
+/*challenge is thatwhich of two employees are responsible for more payments */
+--SELECT * FROM payment 
+SELECT staff_id, COUNT(payment_id) FROM payment 
+GROUP BY staff_id ORDER BY COUNT(payment_id) DESC LIMIT 2
+
+/*challenge is that which of two employees are responsible for higher overall payment
+amount*/
+SELECT staff_id, SUM(amount) FROM payment 
+GROUP BY staff_id ORDER BY SUM(amount) DESC LIMIT 2
+
+/*challenge is that which employee had the highest sales amount 
+in a single day*/
+SELECT staff_id, SUM(amount), DATE(payment_date) FROM payment 
+GROUP BY staff_id, DATE(payment_date) ORDER BY SUM(amount) DESC 
+
+/*challenge is that which employee had the most sales in a single day
+(not count the payment with amount 0)*/
+SELECT staff_id, COUNT(payment_id), DATE(payment_date) FROM payment 
+WHERE amount <> 0
+GROUP BY staff_id, DATE(payment_date) ORDER BY COUNT(payment_id) DESC
+
+/*date should be 2020 april 28, 29 and 30
+Find out the average payment amount grouped by customer and day, 
+only day/customers with more than 1 payment 
+order by average amount in desc order*/
+
+SELECT customer_id, DATE(payment_date), ROUND(AVG(amount), 2), COUNT(payment_id)
+FROM payment WHERE DATE(payment_date) 
+in ('2020-04-28','2020-04-29','2020-04-30')
+GROUP BY customer_id, DATE(payment_date) HAVING COUNT(payment_id) > 1
+ORDER BY AVG(amount) DESC
+
 
  
