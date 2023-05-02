@@ -109,5 +109,13 @@ in ('2020-04-28','2020-04-29','2020-04-30')
 GROUP BY customer_id, DATE(payment_date) HAVING COUNT(payment_id) > 1
 ORDER BY AVG(amount) DESC
 
+-- section 4 
+/*challenge is to create anonymous email like a**.b**@exgmail.com and **l.**i@exgmail.com*/
+SELECT * FROM staff;
+SELECT LEFT(email,1) || '***' || '.' || LEFT(SUBSTRING(email FROM POSITION('.' IN email)+1 for
+POSITION('@' IN email)-POSITION('.' IN email) ),1) || '***' || SUBSTRING(email from POSITION('@' IN email))
+FROM staff 
+SELECT LEFT(email,1) || '***' || SUBSTRING(email from POSITION('@' IN email))
+FROM staff 
 
- 
+--section 5 Date: 02-05-23
