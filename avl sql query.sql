@@ -119,3 +119,39 @@ SELECT LEFT(email,1) || '***' || SUBSTRING(email from POSITION('@' IN email))
 FROM staff 
 
 --section 5 Date: 02-05-23
+SELECT customer_id, count(payment_id),
+case 
+when count(payment_id) > 30 then 'targeted customer'
+else 'not a targeted customer'
+end
+from payment group by customer_id
+order by count(*) DESC
+
+-- challenge is list customer with tag high, mid and low based on total payment they make
+select customer_id, count(customer_id),
+case 
+when sum(amount) < 150 then 'Low'
+when sum(amount) > 150 or sum(amount) < 200 then 'mid'
+when sum(amount) > 200 then 'high'
+end as tag
+from payment group by customer_id
+
+-- challenge using coalasce and cast
+select rental_date, coalesce(cast(return_date as varchar), 'Not returned') 
+from rental where return_date is null
+
+--section 6 join 
+/*The company want to run a phone call campaign to list all customer of texas (= district)
+fields includs first_name, last_name , phone no , district*/
+select * from address
+select * from customer
+select c.first_name, c.last_name, a.phone , a.district 
+from address a inner join customer c 
+on a.address_id = c.address_id
+where a.district = 'Texas'
+
+/*Are there any addresses that are not related to any customer*/
+select *
+from address a left join customer c 
+on a.address_id = c.address_id
+where c.customer_id is null
