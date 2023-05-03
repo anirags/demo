@@ -155,3 +155,118 @@ select *
 from address a left join customer c 
 on a.address_id = c.address_id
 where c.customer_id is null
+
+-- Section 7 Date: 03-05-23
+/*challenge is that select all of the films where length is more than avg or all films*/
+select film_id, title from film
+where length > (select avg(length) from film)
+
+/*Return all of the films that are available in the inventory in store 2 more than 3 times*/
+select film_id, title from film
+where film_id in 
+(select film_id from inventory where store_id = 2 group by film_id having count(*) > 3 ) 
+
+/*Return all customers's first name and last name that have made a payment on '2020-01-25'*/
+select first_name, last_name from customer 
+where customer_id in 
+(select customer_id from payment where date(payment_date) = '2020-01-25')
+
+/*Return all customers's first name and email addresss that have spent more than $30 */
+select first_name, email from customer 
+where customer_id in 
+(select customer_id from payment group by customer_id having sum(amount) > 30)
+
+/*Return all customers's first name and last name that that are from california 
+and spent more than $100 in total*/
+select first_name, email from customer 
+where customer_id in (select customer_id from address a
+inner join customer c on a.address_id = c.address_id 
+where district = 'California') and customer_id in 
+(select customer_id from payment group by customer_id having sum(amount) > 100) 
+
+-- challenge 
+select round (avg(avg_amt),2) from
+(select sum(amount)as avg_amt, date(payment_date) from payment 
+group by date(payment_date)) as a
+
+--section 8 full challenges
+/*1st. Task: Create a list of all the different (distinct) replacement costs of the films.
+Question: What's the lowest replacement cost?*/
+
+select min(distinct(replacement_cost)) from film 
+
+/*2.Task: Write a query that gives an overview of how many films 
+have replacements costs in the following cost ranges.
+low: 9.99 - 19.99
+medium: 20.00 - 24.99
+high: 25.00 - 29.99
+Question: How many films have a replacement cost in the "low" group?*/
+
+select 
+case 
+when replacement_cost between 9.99 and 19.99 then 'low'
+when replacement_cost between 20.00 and 24.99 then 'mid'
+else 'high'
+end as cost_range, count(*)
+from film 
+group by cost_range 
+
+/*3. Task: Create a list of the film titles including their title, length, and category name ordered 
+descendingly by length. Filter the results to only the movies in the category 'Drama' or 'Sports'.
+Question: In which category is the longest film and how long is it?*/
+
+select title, length, c.name from film f inner join film_category fc
+on f.film_id = fc.film_id inner join category c on fc.category_id = c.category_id 
+where c.name in('Drama', 'Sports')
+order by length desc
+
+/*4.Task: Create an overview of the actors' first and last names and in how many movies they appear in.
+Question: Which actor is part of most movies??*/
+
+select a.first_name, a.last_name , count(*) from actor as a
+inner join film_actor as fs on a.actor_id = fs.actor_id
+group by a.first_name, a.last_name 
+order by count(*) desc
+
+/*5.Task: Create an overview of the cities and how much sales (sum of amount) have occurred there.
+
+Question: Which city has the most sales?*/
+select city, sum(amount) from  payment p left join customer c 
+on p.customer_id = c.customer_id left join address a
+on a.address_id = c.address_id  left join city ct
+on a.city_id = ct.city_id 
+group by city
+order by sum(amount) desc
+
+/*6. Task: Create an overview of the addresses that are not associated to any customer.
+Question: How many addresses are that?*/
+
+select customer_id,first_name, last_name , address from customer c left join address a
+on c.address_id = a.address_id
+where first_name is null
+
+/*Create an overview of the revenue (sum of amount) grouped by a column in the format "country, city".
+Question: Which country, city has the least sales?*/
+-- payment -> customer -> address -> city -> country
+select sum(amount), country, city from payment p left join customer c 
+on p.customer_id = c.customer_id left join address a 
+on c.address_id = a.address_id left join city ct 
+on a.city_id = ct.city_id left join country ctry 
+on ct.country_id = ctry.country_id 
+group by country , city 
+order by sum(amount) asc
+
+/*Task: Create a list with the average of the sales amount each staff_id has per customer.
+Question: Which staff_id makes on average more revenue per customer?*/
+
+select staff_id, round(avg(avg_sum),2) from
+(select customer_id ,staff_id ,sum(amount) as avg_sum 
+from payment group by customer_id,staff_id order by staff_id ) a group by staff_id
+
+/*Create a query that shows average daily revenue of all Sundays.
+Question: What is the daily average revenue of all Sundays?*/
+
+select round(avg(total),2) from (select sum(amount)as total, date(payment_date) ,  
+extract(dow from payment_date ) as weekday from payment where extract(dow from payment_date ) = 1
+group by date(payment_date), weekday ) daily
+
