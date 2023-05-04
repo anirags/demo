@@ -270,3 +270,71 @@ select round(avg(total),2) from (select sum(amount)as total, date(payment_date) 
 extract(dow from payment_date ) as weekday from payment where extract(dow from payment_date ) = 1
 group by date(payment_date), weekday ) daily
 
+--section 9 
+-- create table 
+create table director
+(director_id serial primary key,
+director_account_name varchar (20) unique ,
+first_name varchar(50),
+last_name varchar(50),
+address_id int references address(address_id)
+)
+
+alter table director 
+alter column last_name set not null,
+alter column director_account_name type varchar(30),
+add column email varchar(40)
+select * from director
+
+alter table director rename column director_account_name to account_name
+
+-- Create table
+CREATE TABLE emp_table 
+(
+	emp_id SERIAL PRIMARY KEY,
+	emp_name TEXT
+)
+
+-- SELECT table
+SELECT * FROM emp_table
+
+-- Drop table
+drop table emp_table
+
+-- Insert rows
+INSERT INTO emp_table
+VALUES
+(1,'Frank'),
+(2,'Maria')
+
+-- SELECT table
+SELECT * FROM emp_table
+
+-- Truncate table
+truncate emp_table
+
+-- challenge to create a table with some constraints 
+create table songs 
+(song_id serial primary key , song_name varchar(30) not null, 
+genre varchar(30) default 'NOt defined'
+, price numeric(4,2) check (price >= 1.99),
+ release_date date constraint date_check check ( release_date between'01-01-1950' and current_date )  )
+ 
+ select * from songs
+ 
+ insert into songs (song_name, price, release_date)
+ values('SQL song', 0.99, '01-07-2022')
+ truncate songs
+ alter table songs 
+ drop constraint songs_date_check --check ( release_date between current_date and '01-01-1950') 
+ 
+ 
+ select * from customer
+ 
+ update customer 
+ set initials = left(first_name,1) ||'.' || left(last_name,1) ||'.'
+ 
+ -- over partition example 
+ SELECT *, sum(amount) OVER(PARTITION BY customer_id ) from payment
+ 
+ SELECT *, sum(amount) OVER(ORDER BY payment_date ) from payment
