@@ -338,3 +338,65 @@ genre varchar(30) default 'NOt defined'
  SELECT *, sum(amount) OVER(PARTITION BY customer_id ) from payment
  
  SELECT *, sum(amount) OVER(ORDER BY payment_date ) from payment
+ 
+ --roll up
+ 
+ select 'Q'||TO_CHAR(payment_date, 'Q') as quarter,
+ extract(month from payment_date) as month,
+ to_char(payment_date,'W')as week_of_month,
+ date(payment_date),
+ sum(amount)
+ from payment
+ group by 
+ rollup('Q'||TO_CHAR(payment_date, 'Q') ,
+ extract(month from payment_date),
+to_char(payment_date,'W'),
+ date(payment_date))
+ order by 1,2,3,4
+ 
+/*Write a query that returns all grouping sets in all combinations 
+of customer_id, date and title with the aggregation of the payment amount.*/
+SELECT 
+p.customer_id,
+DATE(payment_date),
+title,
+SUM(amount) as total
+FROM payment p
+LEFT JOIN rental r
+ON r.rental_id=p.rental_id
+LEFT JOIN inventory i
+ON i.inventory_id=r.inventory_id
+LEFT JOIN film f
+ON f.film_id=i.film_id
+GROUP BY 
+CUBE(
+p.customer_id,
+DATE(payment_date),
+title
+)
+ORDER BY 1,2,3
+
+--self join 
+CREATE TABLE employee (
+	employee_id INT,
+	name VARCHAR (50),
+	manager_id INT
+);
+
+INSERT INTO employee 
+VALUES
+	(1, 'Liam Smith', NULL),
+	(2, 'Oliver Brown', 1),
+	(3, 'Elijah Jones', 1),
+	(4, 'William Miller', 1),
+	(5, 'James Davis', 2),
+	(6, 'Olivia Hernandez', 2),
+	(7, 'Emma Lopez', 2),
+	(8, 'Sophia Andersen', 2),
+	(9, 'Mia Lee', 3),
+	(10, 'Ava Robinson', 3);
+
+select e1.employee_id, 
+e1.name as emp_name,e2.name as mng_name , e2.manager_id , e3.name as mgn_of_mng from employee e1 left join employee e2 
+on e1.employee_id = e2.manager_id 
+left join employee e3 on e3.manager_id = e2.manager_id
