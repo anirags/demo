@@ -1,0 +1,436 @@
+ [
+        {
+            "CustomerName": "Rehan Khan",
+            "CustomerNameEnglish": "Rehan Khan",
+            "CustomerNameArabic": "",
+            "preferredLanguage": "English",
+            "Id": [
+                {
+                    "IdType": "QID",
+                    "IdTypeAr":"البطاقة الشخصية",
+                    "IdNumber": "98507324255",
+                    "ExpiryDate": "12-22-2022",
+                    "idDocinfo":[]
+                },
+                {
+                    "IdType": "Passport ID",
+                    "IdTypeAr":"رقم جواز السفر",
+                    "IdNumber": "76544",
+                    "ExpiryDate": "07-29-2026",
+                    "idDocinfo":[]
+                },
+                {
+                    "IdType": "Est ID",
+                    "IdTypeAr":"معرف المنشأة",
+                    "IdNumber": "98507324",
+                    "ExpiryDate": "02-23-2022",
+                    "idDocinfo":[]
+                }
+            ],
+            "Account": [
+                {
+                    "AccountID": "7670743596",
+                    "AccountClassification": "Residential",
+                    "Address": "Aspire park running trail , Doha Qatar",
+                    "Alias": "Dad's",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            {
+                                "NotificationType": "Bill Due Notification",
+                                "NotificationTypeArb": "إشعار استحقاق الفاتورة",
+                                "DaysBefore": "5",
+                                "OptIn": false,
+                                "Willbesentto": [
+                                    {
+                                        "ContactNumber": "8746372894"
+                                    },
+                                    {
+                                        "ContactNumber": "rehankhan@km.qa"
+                                    }
+                                ]
+                            },
+                            {
+                                "NotificationType": "Bill Ready Notification",
+                                "NotificationTypeArb": "إشعار جاهز للفواتير",
+                                "OptIn": true,
+                                "Willbesentto": [
+                                    {
+                                        "ContactNumber": "rehankhan@km.qa"
+                                    },
+                                    {
+                                        "ContactNumber": "8746372894"
+                                    },
+                                    {
+                                        "ContactNumber": "rehankhan@gmail.com"
+                                    }
+                                ]
+                            },
+                            {
+                                "NotificationType": "Late Payment Notification",
+                                "NotificationTypeArb": "إشعار السداد المتأخر",
+                                "OptIn": true,
+                                "Willbesentto": [
+                                    {
+                                        "ContactNumber": "rehankhan@km.qa"
+                                    },
+                                    {
+                                        "ContactNumber": "8746372894"
+                                    }
+                                ]
+                            }
+                        ],
+                        "BillPreference": [
+                            {
+                                "billPreferenceType": "SMS",
+                                "billPreference": true
+                            },
+                            {
+                                "billPreferenceType": "Email",
+                                "billPreference": true
+                            }
+                        ],
+                        "AccountSubscriptions": [
+                            {
+                                "subscriptionsType":"Autopay",
+                                "isSubscribed":true
+                            },
+                            {
+                                "subscriptionsType":"BudgetBilling",
+                                "isSubscribed":false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "5648383993",
+                    "AccountClassification": "Residential",
+                    "Address": "AI-Faisal Tower , Doha Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            {
+                                "NotificationType": "Bill Due Notification",
+                                "NotificationTypeArb": "إشعار استحقاق الفاتورة",
+                                "DaysBefore": "5",
+                                "OptIn": true,
+                                "Willbesentto": [
+                                    {
+                                        "ContactNumber": "8746372894"
+                                    },
+                                    {
+                                        "ContactNumber": "rehankhan@km.qa"
+                                    }
+                                ]
+                            },
+                            {
+                                "NotificationType": "Bill Ready Notification",
+                                "NotificationTypeArb": "إشعار جاهز للفواتير",
+                                "OptIn": true,
+                                "Willbesentto": [
+                                    {
+                                        "ContactNumber": "rehankhan@km.qa"
+                                    },
+                                    {
+                                        "ContactNumber": "8746372894"
+                                    }
+                                ]
+                            },
+                            {
+                                "NotificationType": "Late Payment Notification",
+                                "NotificationTypeArb": "إشعار السداد المتأخر",
+                                "OptIn": true,
+                                "Willbesentto": [
+                                    {
+                                        "ContactNumber": "rehankhan@km.qa"
+                                    },
+                                    {
+                                        "ContactNumber": "8746372894"
+                                    }
+                                ]
+                            }
+                        ],
+                        "BillPreference": [
+                            {
+                                "billPreferenceType": "SMS",
+                                "billPreference": true
+                            },
+                            {
+                                "billPreferenceType": "Email",
+                                "billPreference": true
+                            }
+                        ],
+                        "AccountSubscriptions": [
+                            {
+                                "subscriptionsType":"Autopay",
+                                "isSubscribed":true
+                            },
+                            {
+                                "subscriptionsType":"BudgetBilling",
+                                "isSubscribed":false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "555555555555",
+                    "AccountClassification": "Residential",
+                    "Address": "Navigation Tower , Doha Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "66666666666",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "77777777777",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "88888888888",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "99999999999",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "10101010101",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "011",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "012",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "013",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "014",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                },
+                {
+                    "AccountID": "016",
+                    "AccountClassification": "Residential",
+                    "Address": "Doha , Qatar",
+                    "Alias": "Mine",
+                    "AccountInformation": {
+                        "SubscriptionNotification": [
+                            
+                        ],
+                        "BillPreference": [
+                        
+                        ],
+                        "AccountSubscriptions": [
+                            
+                        ]
+                    }
+                }
+            ],
+            "UserID": "QID",
+            "UserIDValue": "8495966686",
+            "Address": "Street 389, AI Jama Street, Doha",
+            "PersonId": "51186",
+            "Contact": [
+                {
+                    "ContactType": "Home Phone Number",
+                    "ContactTypeAR": "رقم الهاتف المنزلي",
+                    "ContactInformation": "974511862314",
+                    "IsPrimary": true,
+                    "IsDoNotDisturb": true,
+                    "DNDStart": "14:41:00",
+                    "DNDEnd": "15:41:00"
+                },
+                {
+                    "ContactType": "Mobile Number",
+                    "ContactTypeAR": "رقم الهاتف المحمول",
+                    "ContactInformation": "8746372894",
+                    "IsPrimary": false,
+                    "IsDoNotDisturb": false,
+                    "DNDStart": "10:41:00",
+                    "DNDEnd": "12:00:00"
+                },
+                {
+                    "ContactType": "Primary Email",
+                    "ContactTypeAR": "البريد الإلكتروني الرئيسي",
+                    "ContactInformation": "rehankhan@km.qa",
+                    "IsPrimary": true,
+                    "IsDoNotDisturb": false,
+                    "DNDStart": "",
+                    "DNDEnd": ""
+                },
+                {
+                    "ContactType": "Fax Number",
+                    "ContactTypeAR": "رقم الفاكس",
+                    "ContactInformation": "123456",
+                    "IsPrimary": false,
+                    "IsDoNotDisturb": false,
+                    "DNDStart": "",
+                    "DNDEnd": ""
+                },
+                {
+                    "ContactType": "Secondary Email",
+                    "ContactTypeAR": "البريد الإلكتروني الثانوي",
+                    "ContactInformation": "rehankhan@gmail.com",
+                    "IsPrimary": true,
+                    "IsDoNotDisturb": false,
+                    "DNDStart": "",
+                    "DNDEnd": ""
+                }
+            ],
+            "isMmeCreatedWith": "Passport",
+            "MoveInDate": "11-07-2022",
+            "PremiseNumber_ElectricityNumber": "7670743596",
+            "AccountClassification": "Villa",
+            "tariffRates": {
+                "electricityTariffRates": {
+                    "type": "Electricity",
+                    "layers": "(1-99999999)",
+                    "tariff": "0.07"
+                },
+                "waterTariffRates": {
+                    "type": "Water",
+                    "layers": "(1-99999999)",
+                    "tariff": "5.2"
+                }
+            },
+            "Area": "AJ Khor",
+            "Street": "BLOCK NO 22, ST NO29 INDUSTRIAL AREA",
+            "BuildingNumber": "423",
+            "Zone": "456733",
+            "Plot": "2442",
+            "PIN": "122104"
+        }
+    ]
