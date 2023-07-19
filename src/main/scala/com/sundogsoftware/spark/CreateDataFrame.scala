@@ -1,8 +1,6 @@
 package com.sundogsoftware.spark
 
 import org.apache.log4j.{Level, Logger}
-import org.apache.spark
-import org.apache.spark.sql.Row.empty.schema
 import org.apache.spark.sql.SparkSession
 
 object CreateDataFrame {
@@ -28,6 +26,7 @@ object CreateDataFrame {
   val columns = Seq("firstname", "middlename", "lastname", "dob", "gender", "salary")
   val df = spark.createDataFrame(data)
     .toDF(columns: _*)
+
 
     df.show()
   }

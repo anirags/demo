@@ -1,8 +1,11 @@
 package com.sundogsoftware.spark
 
-import org.apache.spark.sql._
 import org.apache.log4j._
-    
+import org.apache.spark.sql._
+
+
+
+
 object DataFrames {
   
   case class Person(ID:Int, name:String, age:Int, numFriends:Int)

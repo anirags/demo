@@ -45,7 +45,7 @@ object JsonToMySql {
       .option("header", true)
       .schema(customerOrdersSchema)
       .csv("data/data2.csv")
-    dff.show()
+//    dff.show()
 
 //    val result = df.groupBy("dept")
 //      .agg(sum("salary").alias("Total_salary_by_dept"))
@@ -82,7 +82,7 @@ object JsonToMySql {
 //    reqdata.write.mode(SaveMode.Append).jdbc("jdbc:mysql://localhost:3306/demo", tableName, connectionProperties)
 //    sparkSession.close()
 
-    finalresult.repartition(4).write.mode(SaveMode.Overwrite).format("csv").option("path", "src/resources/deptData").save()
+    finalresult.repartition(4).write.mode(SaveMode.Overwrite).format("csv").option("path", "src/resources/deData").save()
 
 
 

@@ -14,7 +14,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-streaming" % "3.0.0",
   "org.twitter4j" % "twitter4j-core" % "4.0.4",
   "org.twitter4j" % "twitter4j-stream" % "4.0.4",
-  "org.apache.commons" % "commons-csv" % "1.10.0"
+  "org.apache.commons" % "commons-csv" % "1.10.0",
+  "com.databricks" %% "spark-xml" % "0.16.0"
    // libraryDependencies += "mysql" % "mysql-connector-java" % "8.0.33" // Replace with the appropriate version
 
 )
