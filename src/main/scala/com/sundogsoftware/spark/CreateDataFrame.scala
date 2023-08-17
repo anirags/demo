@@ -28,7 +28,9 @@ object CreateDataFrame {
     .toDF(columns: _*)
 
 
-    df.show()
+    val who = spark.read.text("data/WHA_PROVIDER_20230515182549.dat")
+
+
   }
 
 

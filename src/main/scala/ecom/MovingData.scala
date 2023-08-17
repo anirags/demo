@@ -31,7 +31,7 @@ object MovingData {
       when(col("ENTITY_TYPE") === "FACILITY", lit(null)).otherwise(col("ORGANIZATION_NM"))
     )
 
-    val outputpath = "src/resources/who.dat"
+    val outputpath = "src/resources/who1.dat"
     writeDataFrameToDAT(updatedDataFrame,outputpath)
 //    def writeDataFrameToDAT(dataFrame: DataFrame, filePath: String): Unit = {
 //      val delimiter = "~"
@@ -48,9 +48,6 @@ object MovingData {
         sc.parallelize(allData).repartition(1).saveAsTextFile(filePath)
 
       }
-
-
-
 
   }
 }
